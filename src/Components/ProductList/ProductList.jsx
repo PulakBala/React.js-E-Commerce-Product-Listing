@@ -1,5 +1,4 @@
-// src/Components/ProductList/ProductList.jsx
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { fetchProducts } from "../Services/api";
 import ProductCard from "../ProductCard/ProductCard";
 import PropTypes from 'prop-types';
@@ -66,35 +65,42 @@ const ProductList = ({ searchQuery }) => {
   if (loading) return <p className="text-center">Loading...</p>;
 
   return (
-    <div className="p-4">
-      <FilterBar onFilter={setFilters} />
-      <div className="flex justify-between items-center mb-4">
-        <SortOptions onSort={setSortOrder} />
-        <div className="flex gap-4">
-          <button 
-            onClick={() => setView('grid')} 
-            className={`px-4 py-2 border rounded ${view === 'grid' ? 'bg-blue-500 text-white' : 'bg-white text-blue-500'}`}
-          >
-            Grid View
-          </button>
-          <button 
-            onClick={() => setView('list')} 
-            className={`px-4 py-2 border rounded ${view === 'list' ? 'bg-blue-500 text-white' : 'bg-white text-blue-500'}`}
-          >
-            List View
-          </button>
-        </div>
-      </div>
-      <div className={`flex flex-wrap gap-4 ${view === 'grid' ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3' : 'flex-col'}`}>
-        {filteredProducts.length > 0 ? (
-          filteredProducts.map(product => (
-            <ProductCard key={product.id} product={product} />
-          ))
-        ) : (
-          <p className="text-center">No products found.</p>
-        )}
+    <div className="flex">
+ 
+  <div className="fixed top-0 left-0 w-64 h-screen bg-gray-100 border-r border-gray-300 p-4 overflow-y-auto">
+    <FilterBar onFilter={setFilters} />
+    <SortOptions onSort={setSortOrder} />
+  </div>
+  
+ 
+  <div className="ml-64 p-4 flex-1">
+    <div className="flex justify-between items-center mb-4">
+      <div className="flex gap-4">
+        <button 
+          onClick={() => setView('grid')} 
+          className={`px-4 py-2 border rounded ${view === 'grid' ? 'bg-blue-500 text-white' : 'bg-white text-blue-500'}`}
+        >
+          Grid View
+        </button>
+        <button 
+          onClick={() => setView('list')} 
+          className={`px-4 py-2 border rounded ${view === 'list' ? 'bg-blue-500 text-white' : 'bg-white text-blue-500'}`}
+        >
+          List View
+        </button>
       </div>
     </div>
+    <div className={`flex flex-wrap gap-4 ${view === 'grid' ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3' : 'flex-col'}`}>
+      {filteredProducts.length > 0 ? (
+        filteredProducts.map(product => (
+          <ProductCard key={product.id} product={product} />
+        ))
+      ) : (
+        <p className="text-center">No products found.</p>
+      )}
+    </div>
+  </div>
+</div>
   );
 };
 

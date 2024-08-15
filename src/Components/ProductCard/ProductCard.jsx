@@ -1,5 +1,5 @@
 // src/Components/ProductList/ProductCard.jsx
-import React from 'react';
+
 
 const ProductCard = ({ product }) => {
   const {image, title, price, description} = product;
