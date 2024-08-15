@@ -1,5 +1,5 @@
 import { useState } from "react"
-import FilterBar from "./Components/FilterBar/FilterBar"
+// import FilterBar from "./Components/FilterBar/FilterBar"
 import ProductList from "./Components/ProductList/ProductList"
 import SearchBar from "./Components/SearchBar/SearchBar"
 import SortOptions from "./Components/SortOptions/SortOptons"
