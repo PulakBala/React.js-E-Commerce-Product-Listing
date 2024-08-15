@@ -13,7 +13,6 @@ function App() {
   return (
     <>
      <div className="App">
-      <h1>Product Listing</h1>
         <SearchBar onSearch={handleSearch}/>
         <ProductList searchQuery={searchQuery}/>
      </div>
