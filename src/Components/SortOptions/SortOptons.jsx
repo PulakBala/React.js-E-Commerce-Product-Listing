@@ -7,10 +7,10 @@ const SortOptions = ({ onSort }) => {
   };
 
   return (
-    <div className="relative max-w-xs mx-auto pt-8">
+    <div className="relative mt-4 max-w-xs mx-auto  dark:bg-gray-800 dark:border-gray-700">
       <select
         onChange={handleSortChange}
-        className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+        className="dark:bg-gray-800 dark:border-gray-700 w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
       >
         <option value="price-asc">Price: Low to High</option>
         <option value="price-desc">Price: High to Low</option>
